@@ -469,6 +469,12 @@
           console.log(mise_list[i]['MSRSTE_NM'], mise_list[i]['IDEX_MVL']);
         }
       }
+
+      mise_list.forEach(function (mise) {
+        if (mise['IDEX_MVL'] < 40) {
+          console.log(mise['MSRSTE_NM'], mise['IDEX_MVL']);
+        }
+      })
     }
     Q3();
   </script>
