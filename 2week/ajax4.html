@@ -23,7 +23,20 @@
           type: 'GET',
           data: {},
           success: function(response) {
-            console.log(response);
+            const result = response[0];
+            const {width, height, url} = result;
+
+            // <img src="" width="" height="" />
+            $('#img-cat').attr({
+              width: width,
+              height: height,
+              src: url
+            });
+            // $('#img-cat').attr({
+            //   width,
+            //   height,
+            //   src: url
+            // });
           }
         })
       }
