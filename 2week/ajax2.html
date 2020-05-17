@@ -26,7 +26,7 @@
                 const {row} = RealtimeCityAir;
 
                 $('#names-q1').empty();
-                row.forEach(item => {
+                row.forEach(function(item) {
                   const {IDEX_MVL, MSRSTE_NM} = item;
                   let html = `<li>${MSRSTE_NM}:  ${IDEX_MVL}</li>`;
                   $('#names-q1').append(html);
