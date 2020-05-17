@@ -25,6 +25,12 @@
       .container {
         /* background-color: red; */
       }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
@@ -37,7 +43,8 @@
           이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면 짜자잔 뭐든지 이뤄지게 됩니다. 하나 사가세요! 대나무 향이 아주 좋아요
         </p>
       </div>
-      <div>
+
+      <div class="input-container">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">
@@ -88,6 +95,10 @@
             aria-describedby="basic-addon1"
           >
         </div>
+
+        <button class="btn btn-primary">
+          주문하기
+        </button>
       </div>
     </div>
   </body>
