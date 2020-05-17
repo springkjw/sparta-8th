@@ -4,6 +4,28 @@
     <!-- ajax는 jQuery 필요 -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
+      // type: api 요청 종류
+      // method: GET, POST, PATCH, PUT, DELETE
+      // GET: 데이터를 조회
+      // POST: 데이터를 생성
+      // PATCH: 데이터를 일부 수정
+      // PUT: 데이터를 전체 수정
+      // DELETE: 데이터 삭제
+      // 해당 method는 반드시 지킬 필요가 없다
+      // 이번 강의는 GET(데이터 조회), POST(데이터 생성, 수정, 삭제)
+
+      // 양식 : url , header, body
+      // GET: url, header만 사용
+      // POST: url, header, body 모두 사용
+
+      // 클라(브라우저)가 서버한테 데이터를 줄 때
+      // GET: url
+      // ex) naver.com?username=springkjw&passowrd=123456
+
+      // POST: body에 데이터를 담아서 전송
+      // ex) naver.com
+      // body : {username: springkjw, password: 123456}
+
       $.ajax({
         type: "GET", // GET 방식으로 요청한다.
         url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
