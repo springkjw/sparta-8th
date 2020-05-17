@@ -34,7 +34,15 @@
           success: function(response){ // 서버에서 준 결과를 response라는 변수에 담음
             let data = response["RealtimeCityAir"];
             let result = data["row"];
-            console.log(result);
+            
+            for(let i = 0; i < result.length; i++) {
+              let gu = result[i]["MSRSTE_NM"];
+              let mise = result[i]["IDEX_MVL"];
+
+              console.log(gu, mise);
+              let html = `<li>${gu} : ${mise}</li>`;
+              $('#data-box').append(html);
+            }
           },
           error: function(error) { // 서버에서 문제가 발생해서 정상값이 응답 안 올 때
             console.log(error);
@@ -47,5 +55,8 @@
   <body>
     <button onclick="test()">데이터 불러오기</button>
 
+    <ul id="data-box">
+
+    </ul>
   </body>
 </html>
