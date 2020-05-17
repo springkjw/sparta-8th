@@ -56,7 +56,8 @@
       function Q1() {
         // 아티클 URL 입력창과 간단 코멘트 입력창
         // 값을 jQuery를 이용해서 불러오기
-        let article_value = $('#article_input').val();
+        // let article_value = $('.form-group > #article_input').val();
+        let article_value = $('input[type=text]').val();
         console.log(article_value);
 
         let comment_value = $('.comment_input').val();
@@ -79,7 +80,7 @@
             <div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">아티클 URL</label>
-                    <input id="article_input" class="form-control" placeholder="">
+                    <input type="text" id="article_input" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">간단 코멘트</label>
