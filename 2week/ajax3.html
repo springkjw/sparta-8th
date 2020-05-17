@@ -33,7 +33,9 @@
               data: {},
               success: function(response) {
                 const {rentBikeStatus} = response;
+                // const rentBikeStatus = response["rentBikeStatus"];
                 const {row} = rentBikeStatus;
+                // const row = rentBikeStatus["row"];
 
                 $('#names-q1').empty();
                 row.forEach(function(item) {
