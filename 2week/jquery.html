@@ -57,11 +57,15 @@
         // 아티클 URL 입력창과 간단 코멘트 입력창
         // 값을 jQuery를 이용해서 불러오기
         // let article_value = $('.form-group > #article_input').val();
-        let article_value = $('input[type=text]').val();
-        console.log(article_value);
+        // let article_value = $('input[type=text]').val();
+        // console.log(article_value);
 
-        let comment_value = $('.comment_input').val();
-        console.log(comment_value);
+        // let comment_value = $('.comment_input').val();
+        // console.log(comment_value);
+
+        // 기사저장 버튼을 누르면 입력창에 미리 정한 값을 채우기
+        let text = "이것은 미리 만든 문구입니다.";
+        $('#article_input').val(text);
       }
     </script>
 </head>
