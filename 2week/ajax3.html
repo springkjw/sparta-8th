@@ -40,8 +40,10 @@
                 $('#names-q1').empty();
                 row.forEach(function(item) {
                   const {stationName, rackTotCnt, parkingBikeTotCnt} = item;
+                  // 삼항 연산자 ? (+ - * /)
+                  // A ? B : C
                   let html = `
-                    <tr>
+                    <tr style="color: ${parkingBikeTotCnt < 5 ? 'red' : 'black'}">
                       <td>${stationName}</td>
                       <td>${rackTotCnt}</td>
                       <td>${parkingBikeTotCnt}</td>
