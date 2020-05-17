@@ -1374,9 +1374,9 @@
           stationId: "ST-58",
         },
       ];
-    
+      // parseInt: 문자열을 숫자로 변환
       for (let i = 0; i < bikes.length; i++) {
-        if (bikes[i]['parkingBikeTotCnt'] < 5) {
+        if (parseInt(bikes[i]['parkingBikeTotCnt']) < 5) {
           console.log(bikes[i]['stationName']);
         }
       }
