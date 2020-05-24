@@ -48,7 +48,14 @@
           type: 'GET',
           data: {},
           success: function(response) {
-            console.log(response);
+            let currency = 0;
+            response.forEach(function(item) {
+              if (item["name"] === "USDKRW=X") {
+                currency = item["rate"];
+              }
+            });
+
+            $('#currency').text(`달러-원 환율: ${currency}`);
           }
         })
       }
@@ -63,6 +70,8 @@
         <p class="description">
           이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 켜고 소원을 빌면 짜자잔 뭐든지 이뤄지게 됩니다. 하나 사가세요! 대나무 향이 아주 좋아요
         </p>
+
+        <span id="currency"></span>
       </div>
 
       <div class="input-container">
