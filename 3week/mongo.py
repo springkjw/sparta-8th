@@ -16,4 +16,26 @@ db = client.dbsparta
 all_users = list(db.users.find())
 # list() => python list로 변환
 
-print(all_users)
+# 데이터 필터 조회
+some_users = list(db.users.find({'age': 99}))
+# print(some_users)
+
+# 데이터 조회, 특정 key만 조회
+some_key_users = list(db.users.find({}, {'_id': False}))
+print(some_key_users)
+
+# 데이터 수정
+# db.users.update_many(
+#     {'age': 20},
+#     {'$set': {'name': 'vincent'}}
+# )
+# update_many: 필터 조건에 만족하는 모든 데이터를 수정
+# update_one: 필터 조건에 만족하는 첫번째 데이터만 수정
+# db.users.update_one(
+#     {'age': 20},
+#     {'$set': {'name': 'vincent'}}
+# )
+
+# 데이터 삭제
+# db.users.delete_one({})
+db.users.delete_many({})
