@@ -5,9 +5,15 @@ db = client.dbsparta
 # 데이터베이스 하나를 생성하는데 그 이름이 dbsparta
 
 # 데이터 넣기(insert)
-db.users.insert_one(
-    {
-        "name": "Bob",
-        "age": 20
-    }
-)
+# db.users.insert_one(
+#     {
+#         "name": "Bob",
+#         "age": 20
+#     }
+# )
+
+# 데이터 조회
+all_users = list(db.users.find())
+# list() => python list로 변환
+
+print(all_users)
