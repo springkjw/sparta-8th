@@ -13,3 +13,9 @@ same_movies = list(db.movies.find({'star': metrics_star}))
 for movie in same_movies:
     movie_title = movie["title"]
     print(movie_title)
+
+# 매트릭스 영화랑 같은 평점의 영화의 평점을 강제로 0으로 만들자
+db.movies.update_many(
+    {'star': metrics_star},
+    {'$set': {'star': 0}}
+)
