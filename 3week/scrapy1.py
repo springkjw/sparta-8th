@@ -20,13 +20,13 @@ soup = BeautifulSoup(data.text, 'html.parser')
 movies = soup.select('#old_content > table > tbody > tr')
 
 for movie in movies:
-    a_tag = movie.select_one('td.title > div > a')
-    # <a 태그 결과값>
-    # a_tag = movie.select('td.title > div > a')
-    # [<a 태그 결과값>]
-    
-    if a_tag is not None:
-        print(a_tag.text)
+    title_tag = movie.select_one('td.title > div > a')
+    rate_tag = movie.select_one('td.point')
+    rank_tag = movie.select_one('td.ac > img')
 
-# select : 결과값이 항상 리스트
-# select_one : 결과값이 항상 HTML 태그
+    if title_tag is not None and rate_tag is not None and rank_tag is not None:
+        title = title_tag.text
+        rate = rate_tag.text
+        rank = rank_tag["alt"]
+
+        print(rank, title, rate)
