@@ -21,6 +21,12 @@ movies = soup.select('#old_content > table > tbody > tr')
 
 for movie in movies:
     a_tag = movie.select_one('td.title > div > a')
+    # <a 태그 결과값>
+    # a_tag = movie.select('td.title > div > a')
+    # [<a 태그 결과값>]
     
     if a_tag is not None:
         print(a_tag.text)
+
+# select : 결과값이 항상 리스트
+# select_one : 결과값이 항상 HTML 태그
