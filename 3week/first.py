@@ -134,3 +134,11 @@ else:
 
 if a > 5 or b > 3:
     print("test1")
+
+# 함수
+# function test(response) {}
+
+def test(a, b, c=10):
+    print(a, b, c)
+
+test(1, 2)
