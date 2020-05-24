@@ -18,4 +18,9 @@ data = requests.get(
 soup = BeautifulSoup(data.text, 'html.parser')
 
 movies = soup.select('#old_content > table > tbody > tr')
-print(movies)
+
+for movie in movies:
+    a_tag = movie.select_one('td.title > div > a')
+    
+    if a_tag is not None:
+        print(a_tag.text)
