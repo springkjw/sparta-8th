@@ -24,3 +24,9 @@ for movie in movies:
         title = a_tag.text                                      # a 태그 사이의 텍스트를 가져오기
         star = movie.select_one('td.point').text                # td 태그 사이의 텍스트를 가져오기
         print(rank,title,star)
+
+        db.movies.insert_one({
+            'rank': rank,
+            'title': title,
+            'star': star
+        })
