@@ -39,3 +39,7 @@ print(some_key_users)
 # 데이터 삭제
 # db.users.delete_one({})
 db.users.delete_many({})
+
+
+# CRUD
+# Create - Retreive - Update - Delete
