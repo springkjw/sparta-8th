@@ -23,7 +23,7 @@ def count_fruit(fruit_name):
 
 
 people = [{'name': 'bob', 'age': 20}, 
-          {'name': 'carry', 'age': 38},
+          {'name': 'carry', 'age1': 38},
           {'name': 'john', 'age': 7}]
 
 # for person in people:
@@ -33,7 +33,7 @@ def get_age(person_name):
     age = None
     for person in people:
         if person["name"] == person_name:
-            age = person["age"]
+            age = person.get("age", "해당 이름의 나이가 없습니다")
     # age == None
     if age is None:
         return "해당 이름의 나이가 없습니다."
