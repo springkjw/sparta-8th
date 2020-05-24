@@ -27,4 +27,6 @@ for row in rows:
     gu_name = row["MSRSTE_NM"]
     mise_value = row["IDEX_MVL"]
 
-    print(gu_name, mise_value)
+    # 미세먼지 농도(IDEX_MVL)가 100미만인 구 이름만 찍어보자
+    if mise_value < 100:
+        print(gu_name)
