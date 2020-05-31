@@ -1,3 +1,14 @@
 $(document).ready(function() {
-  alert('자바스크립트 파일이 실행되었어요.');
+  load();
 });
+
+function load() {
+  $.ajax({
+    url: '/test/get/data',
+    type: 'GET',
+    data: {},
+    success: function(response) {
+      console.log(response);
+    }
+  })
+}
