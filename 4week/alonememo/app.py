@@ -22,9 +22,32 @@ def listing():
 ## API 역할을 하는 부분
 @app.route('/memo', methods=['POST'])
 def saving():
-		# 1. 클라이언트로부터 데이터를 받기
-		# 2. meta tag를 스크래핑하기
-		# 3. mongoDB에 데이터 넣기
+	# 1. 클라이언트로부터 데이터를 받기
+	# 2. meta tag를 스크래핑하기
+	# 3. mongoDB에 데이터 넣기
+    url_receive = request.form['url_give']
+    comment_receive = request.form['comment_give']
+
+    response = requests.get(url_receive)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    title_tag = soup.select_one('meta[property="og:title"]')
+    description_tag = soup.select_one('meta[property="og:description"]')
+    image_tag = soup.select_one('meta[property="og:image"]')
+
+    title = title_tag['content']
+    description = description_tag['content']
+    image = image_tag['content']
+    # title_tag.text
+    # <meta content="image_test">TEST</meta>
+    db.alonememo.insert_one({
+        'title': title,
+        'description': description,
+        'image': image,
+        'url': url_receive,
+        'comment': comment_receive
+    })
+
     return jsonify({'result': 'success', 'msg':'POST 연결되었습니다!'})
 
 if __name__ == '__main__':
