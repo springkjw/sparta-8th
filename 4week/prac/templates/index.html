@@ -6,11 +6,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
     
-    <link href="{{ url_for('static', filename='css/index.css')  }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')  }}" />
 </head>
 <body>
     <h1>서버를 만들었다!</h1>
-    <img src="{{ url_for('static', filename='rom.jpg') }}" />
+    <img src="{{ url_for('static', filename='rome.jpg') }}" />
     <!-- static: 정적 파일의 url 주소 -->
     <!-- filename: static 폴더 안의 상대 경로를 넣기 -->
     <!-- 만약에 경로가 잘못되거나 파일이 없다면 404 -->
