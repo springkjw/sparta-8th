@@ -13,6 +13,17 @@ def home():
 ## API 역할을 하는 부분
 @app.route('/reviews', methods=['POST'])
 def write_review():
+    title_receive = request.form['title_give']
+    author_receive = request.form['author_give']
+    review_receive = request.form['review_give']
+
+    # 클라이언트에서 받은 값을 MongoDB에 저장!
+    db.bookreview.insert_one({
+        'title': title_receive,
+        'author': author_receive,
+        'review': review_receive
+    })
+
     return jsonify({'result':'success', 'msg': '이 요청은 POST!'})
 
 
