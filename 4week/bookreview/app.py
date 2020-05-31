@@ -29,7 +29,15 @@ def write_review():
 
 @app.route('/reviews', methods=['GET'])
 def read_reviews():
-    return jsonify({'result':'success', 'msg': '이 요청은 GET!'})
+    # MongoDB에서 _id 제외한 모든 데이터 조회
+    reviews = list(db.bookreview.find({}, {'_id': False}))
+    # Dictionary에 데이터 담기
+    data = {
+        'result': 'success',
+        'reviews': reviews,
+    }
+
+    return jsonify(data)
 
 
 if __name__ == '__main__':
