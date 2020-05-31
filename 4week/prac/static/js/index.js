@@ -12,3 +12,17 @@ function load() {
     }
   })
 }
+
+function postData() {
+  $.ajax({
+    url: '/test/post/data',
+    type: 'POST',
+    data: {
+      username: 'sparta',
+      password: 1234
+    },
+    success: function(response) {
+      console.log(response);
+    }
+  })
+}
