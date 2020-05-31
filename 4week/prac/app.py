@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -14,6 +14,23 @@ def home():
 @app.route('/mypage')
 def mypage():
     return "This is My Page"
+
+
+# API
+# url, header, body
+# GET : url, header (데이터를 조회)
+# POST : url, header, body (데이터를 생성, 수정, 삭제)
+
+@app.route('/test/get/data', methods=['GET'])
+def get_data():
+    data = {
+        'test': 123,
+        'test1': True,
+        'test2': '스파르타'
+    }
+
+    return jsonify(data)
+
 
 # __name__ : 해당 파이썬 파일이 실행되는 위치
 # __name__ == '__main__'
