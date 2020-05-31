@@ -38,6 +38,11 @@ def get_data():
 
 @app.route('/test/post/data', methods=['POST'])
 def post_data():
+    username_receive = request.form['username']
+    password_receive = request.form['password']
+
+    print(username_receive, password_receive)
+
     data = {
         'success': True
     }
