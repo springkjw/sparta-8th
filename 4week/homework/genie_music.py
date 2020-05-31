@@ -29,4 +29,11 @@ for music in musics:
     artist_tag = music.select_one('td.info > a.artist')
     rank_tag = music.select_one('td.number')
 
-    print(title_tag.text, artist_tag.text, rank_tag.text)
+    title = title_tag.text
+    title = title.lstrip()
+
+    artist = artist_tag.text
+
+    rank = rank_tag.find(text=True, recursive=False)
+
+    print(title, artist, rank)
