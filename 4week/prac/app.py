@@ -10,6 +10,10 @@ app = Flask(__name__)
 def home():
     return "Hello World!"
 
+@app.route('/mypage')
+def mypage():
+    return "This is My Page"
+
 # __name__ : 해당 파이썬 파일이 실행되는 위치
 # __name__ == '__main__'
 # 해당 파이썬 파일이 실행 되었을 때
