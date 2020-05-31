@@ -36,4 +36,8 @@ for music in musics:
 
     rank = rank_tag.find(text=True, recursive=False)
 
-    print(title, artist, rank)
+    db.genie.insert_one({
+        'rank': rank,
+        'title': title,
+        'artist': artist
+    })
