@@ -64,7 +64,7 @@
       // 2. 값이 없으면 입력해달라고 alert 띄우기
       // 3. 정상적으로 데이터 저장 요청하면 화면 리프레쉬
       let artilceUrl = $('#posting-url').val();
-      let comment = $('#posing-comment').val();
+      let comment = $('#posting-comment').val();
 
       if (artilceUrl.length === 0 || comment.length === 0) {
         alert('값을 제대로 입력해주세요!');
@@ -82,7 +82,7 @@
         },
         success: function (response) { // 성공하면
           if (response['result'] == 'success') {
-            window.reload();
+            window.location.reload();
           }
         }
       })
