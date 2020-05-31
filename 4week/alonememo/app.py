@@ -28,7 +28,14 @@ def saving():
     url_receive = request.form['url_give']
     comment_receive = request.form['comment_give']
 
-    response = requests.get(url_receive)
+    # url, header, body
+    # GET : url, header('요청을 설명하는 곳')
+
+    headers = {
+        'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'
+    }
+
+    response = requests.get(url_receive, headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
 
     title_tag = soup.select_one('meta[property="og:title"]')
