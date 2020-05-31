@@ -21,4 +21,12 @@ data = requests.get(
 )
 
 soup = BeautifulSoup(data.text, 'html.parser')
-print(soup)
+
+musics = soup.select('.music-list-wrap > table > tbody > tr')
+
+for music in musics:
+    title_tag = music.select_one('td.info > a.title')
+    artist_tag = music.select_one('td.info > a.artist')
+    rank_tag = music.select_one('td.number')
+
+    print(title_tag.text, artist_tag.text, rank_tag.text)
