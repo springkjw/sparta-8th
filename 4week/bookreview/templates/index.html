@@ -73,8 +73,20 @@
                 data: {},
                 success: function (response) {
                     if (response['result'] == 'success') {
-                        alert(response['msg']);
                         // 2. 성공했을 때 리뷰를 올바르게 화면에 나타내기
+                        let reviews = response['reviews']
+                        // reviews : [{1}, {2}, {3}]
+                        reviews.forEach(function(review) {
+                          let html = `
+                            <tr>
+                              <td>${review['title']}</td>
+                              <td>${review['author']}</td>
+                              <td>${review['review']}</td>
+                            </tr>
+                          `;
+
+                          $('#orders-box').append(html);
+                        })
                     } else {
                         alert('리뷰를 받아오지 못했습니다');
                     }
