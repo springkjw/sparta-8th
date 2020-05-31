@@ -1,7 +1,6 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
-
 # python decorator(데코레이터)
 # 함수를 꾸며주는 함수
 # 라우터 기능: 사용자가 접속할 수 있는 URL을 생성
@@ -23,11 +22,17 @@ def mypage():
 
 @app.route('/test/get/data', methods=['GET'])
 def get_data():
+    username_receive = request.args.get('username')
+    password_receive = request.args.get('password')
+
     data = {
         'test': 123,
         'test1': True,
         'test2': '스파르타'
     }
+
+    if password_receive == '1234':
+        data['test1'] = False
 
     return jsonify(data)
 
