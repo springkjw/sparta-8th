@@ -36,6 +36,13 @@ def get_data():
 
     return jsonify(data)
 
+@app.route('/test/post/data', methods=['POST'])
+def post_data():
+    data = {
+        'success': True
+    }
+    return jsonify(data)
+
 
 # __name__ : 해당 파이썬 파일이 실행되는 위치
 # __name__ == '__main__'
