@@ -37,10 +37,23 @@
             // 1. 제목, 저자, 리뷰 내용을 가져옵니다.
             // 2. 제목, 저자, 리뷰 중 하나라도 입력하지 않았을 경우 alert를 띄웁니다.
             // 3. POST /reviews 에 저장을 요청합니다.
+            let title = $('#title').val();
+            let author = $('#author').val();
+            let review = $('#review').val();
+
+            if (title.length === 0 || author.length === 0 || review.length === 0) {
+              alert('제대로 입력해주세요!');
+              return;
+            }
+
             $.ajax({
                 type: 'POST', // 타입을 작성합니다.
                 url: '/reviews', // url을 작성합니다.
-                data: {}, // data를 작성합니다. },
+                data: {
+                  title_give: title,
+                  author_give: author,
+                  review_give: review
+                }, // data를 작성합니다. },
                 success: function (response) {
                     if (response['result'] == 'success') {
                         alert(response['msg']);
