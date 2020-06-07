@@ -19,6 +19,13 @@ def order_create():
     address_receive = request.form['address_give']
     phone_receive = request.form['phone_give']
 
+    db.candle.insert_one({
+        'name': name_receive,
+        'count': count_receive,
+        'address': address_receive,
+        'phone': phone_receive
+    })
+
     return jsonify({'result': 'success'})
 
 
