@@ -21,5 +21,30 @@ def star_retreive():
     })
 
 
+@app.route('/api/like', methods=['POST'])
+def star_like():
+    # 1. 클라언트에서 좋아요 누른 배우 정보를 받아오기
+    # 2. 해당 배우의 like 값을 +1 시킴
+    name_receive = request.form['name_give']
+    star = list(db.mystar.find({'name': name_receive}))
+    if len(star) == 0:
+        # 조회하는 영봐 배우가 정보가 없을 때
+        return jsonify({
+            'result': 'fail'
+        })
+    # star[0].get('like', 0) > star 리스트의 첫번째 원소의 키가 like의 value 조회하는데 like 키가 없으면
+    # 기본 값으로 0으로 채워준다.
+    db.mystar.update_one(
+        {'name': name_receive},
+        {'$set': {
+            'like': star[0].get('like', 0) + 1
+        }}
+    )
+
+    return jsonify({
+        'result': 'success'
+    })
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
