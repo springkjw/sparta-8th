@@ -14,7 +14,9 @@ def home():
 
 @app.route('/api/list')
 def star_retreive():
-    stars = list(db.mystar.find({}, {'_id': False}))
+    stars = list(
+        db.mystar.find({}, {'_id': False}).sort('like', -1)
+    )
     return jsonify({
         'result': 'success',
         'stars': stars
