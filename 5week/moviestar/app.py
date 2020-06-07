@@ -48,5 +48,16 @@ def star_like():
     })
 
 
+@app.route('/api/delete', methods=['POST'])
+def star_delete():
+    # 1. 클라이언트에서 영화 배우 이름을 받아오기
+    # 2. 해당 배우의 데이터를 삭제
+    name_receive = request.form['name_give']
+    db.mystar.delete_one({'name': name_receive})
+    return jsonify({
+        'result': 'success'
+    })
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

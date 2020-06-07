@@ -100,7 +100,8 @@
               },
               success: function (response) {
                   if (response['result'] == 'success') {
-										window.location.reload();
+                    $('#star-box').empty();
+                    show_star();
                   } else {
                     alert('좋아요에 실패하였습니다');
                   }
@@ -112,11 +113,13 @@
           $.ajax({
               type: 'POST',
               url:  '/api/delete',
-              data: {},
+              data: {
+                name_give: name
+              },
               success: function (response) {
                   if (response['result'] == 'success') {
-										let msg = response['msg'];
-										alert(msg);
+                    $('#star-box').empty();
+                    show_star();
                   }
               }
           });
