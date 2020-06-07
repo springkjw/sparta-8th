@@ -69,13 +69,13 @@
                         </div>
                       </div>
                       <footer class="card-footer">
-                        <a href="#" onclick="like_star('김다미')" class="card-footer-item has-text-info">
+                        <a href="#" onclick="like_star('${star['name']}')" class="card-footer-item has-text-info">
                           위로!
                           <span class="icon">
                             <i class="fas fa-thumbs-up"></i>
                           </span>
                         </a>
-                        <a href="#" onclick="delete_star('김다미')" class="card-footer-item has-text-danger">
+                        <a href="#" onclick="delete_star('${star['name']}')" class="card-footer-item has-text-danger">
                           삭제
                           <span class="icon">
                             <i class="fas fa-ban"></i>
@@ -95,11 +95,14 @@
           $.ajax({
               type: 'POST',
               url:  '/api/like',
-              data: {},
+              data: {
+                name_give: name
+              },
               success: function (response) {
                   if (response['result'] == 'success') {
-										let msg = response['msg'];
-										alert(msg);
+										window.location.reload();
+                  } else {
+                    alert('좋아요에 실패하였습니다');
                   }
               }
           });
