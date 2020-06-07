@@ -29,5 +29,15 @@ def order_create():
     return jsonify({'result': 'success'})
 
 
+@app.route('/order', methods=['GET'])
+def order_retreive():
+    orders = list(db.candle.find({}, {'_id': False}))
+
+    return jsonify({
+        'result': 'success',
+        'orders': orders
+    })
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
