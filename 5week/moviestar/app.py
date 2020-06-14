@@ -56,6 +56,7 @@ def star_delete():
     db.mystar.delete_one({'name': name_receive})
     return jsonify({
         'result': 'success'
+        
     })
 
 
